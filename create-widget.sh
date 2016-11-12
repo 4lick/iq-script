@@ -8,7 +8,8 @@ DEVICE=$3
 [ "$DEVICE" = "" ] && DEVICE=fr920xt
 MIN_SDK=$4
 [ "$MIN_SDK" = "" ] && MIN_SDK=1.2.1
-APP_PREFIXE=$(echo $APP_NAME | tr '[:upper:]' '[:lower:]' | tr -d '-')
+#APP_PREFIXE=$(echo $APP_NAME | tr '[:upper:]' '[:lower:]' | tr -d '-')
+APP_PREFIXE="${APP_NAME}"
 APP_ENTRY="${APP_PREFIXE}App"
 APP_DELEGATE="${APP_PREFIXE}Delegate"
 APP_VIEW="${APP_PREFIXE}View"
@@ -60,9 +61,7 @@ sed -i -e "s!\${AppName}!$APP_NAME!g" ${COMPLETE_PATH}/build.sh
 sed -i -e "s!\${AppName}!$APP_NAME!g" ${COMPLETE_PATH}/run.sh
 
 # CLEAN
-rm -f ${COMPLETE_PATH}/*.sh-e
-rm -f ${COMPLETE_PATH}/resources/strings/*.xml-e
-rm -f ${COMPLETE_PATH}/source/*.mc-e
+rm -f ${COMPLETE_PATH}/*.sh-e ${COMPLETE_PATH}/resources/strings/*.xml-e ${COMPLETE_PATH}/source/*.mc-e
 
 #EXEC="monkeyc -o ${COMPLETE_PATH}/bin/${APP_NAME}.prg -d ${DEVICE} -m ${COMPLETE_PATH}/manifest.xml -z ${RESOURCE_PATH} ${COMPLETE_PATH}/source/*.mc -w -y ${DEVELOPER_KEY}"
 #echo $EXEC

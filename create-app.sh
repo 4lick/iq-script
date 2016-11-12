@@ -8,7 +8,8 @@ DEVICE=$3
 [ "$DEVICE" = "" ] && DEVICE=fr920xt
 MIN_SDK=$4
 [ "$MIN_SDK" = "" ] && MIN_SDK=1.2.1
-APP_PREFIXE=$(echo $APP_NAME | tr '[:upper:]' '[:lower:]' | tr -d '-')
+#APP_PREFIXE=$(echo $APP_NAME | tr '[:upper:]' '[:lower:]' | tr -d '-')
+APP_PREFIXE="${APP_NAME}"
 APP_ENTRY="${APP_PREFIXE}App"
 APP_DELEGATE="${APP_PREFIXE}Delegate"
 APP_VIEW="${APP_PREFIXE}View"
